@@ -30,5 +30,5 @@ EXPOSE 8000
 # Run migrations
 RUN python manage.py migrate
 
-WORKDIR /app/pygoat/
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers","6", "pygoat.wsgi"]
+# Set the entrypoint
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "6", "pygoat.wsgi:application"]
