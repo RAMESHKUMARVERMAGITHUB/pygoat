@@ -32,3 +32,33 @@ RUN python manage.py migrate
 
 # Set the entrypoint
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "6", "pygoat.wsgi:application"]
+
+
+
+
+
+# # Use an official Python runtime as a parent image
+# FROM python:3.11.0b1-buster
+
+# # Set environment variables
+# ENV PYTHONDONTWRITEBYTECODE 1
+# ENV PYTHONUNBUFFERED 1
+
+# # Set the working directory in the container
+# WORKDIR /app
+
+# # Clone the PyGoat repository from GitHub
+# RUN git clone https://github.com/adeyosemanputra/pygoat.git .
+
+# # Install PyGoat and its dependencies
+# RUN bash installer.sh
+
+# # Apply migrations
+# RUN python3 manage.py migrate
+
+# # Expose port 8000 to the outside world
+# EXPOSE 8000
+
+# # Command to run the PyGoat server
+# CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+
